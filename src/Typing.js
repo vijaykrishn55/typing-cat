@@ -1,94 +1,148 @@
 import React, { useState } from "react";
-import { BiSolidKeyboard } from "react-icons/bi";
-import { BiSolidUserCircle } from "react-icons/bi";
-import { BiReset } from "react-icons/bi";
-import { BsInstagram } from "react-icons/bs";
-import { BsLinkedin } from "react-icons/bs";
-import { AiOutlineMail } from "react-icons/ai";
-import { BsGithub } from "react-icons/bs";
-let textarea = document.getElementById("input-text");
 
-const Typing = () => {
-  const [words, Setwords] = useState([
-    "Tomato",
-    "OpenAI",
-    "Banana",
-    "Programming",
-    "October",
-    "Purple",
-    "Pizza",
-    "Library",
-    "Elephant",
-    "Sunflower",
-  ]);
-  console.log(words);
+const Typing = (props) => {
+  let string_array = [
+    "apple",
+    "banana",
+    "cherry",
+    "date",
+    "elderberry",
+    "fig",
+    "grape",
+    "honeydew",
+    "kiwi",
+    "lemon",
+    "mango",
+    "nectarine",
+    "orange",
+    "pear",
+    "quince",
+    "raspberry",
+    "strawberry",
+    "tangerine",
+    "watermelon",
+    "avocado",
+    "blueberry",
+    "cranberry",
+    "guava",
+    "lime",
+    "papaya",
+    "pineapple",
+    "apricot",
+    "blackberry",
+    "coconut",
+    "grapefruit",
+    "pomegranate",
+    "plum",
+    "passionfruit",
+    "kiwifruit",
+    "mango",
+    "nectarine",
+    "lime",
+    "lemon",
+    "cherry",
+    "pomegranate",
+    "grape",
+    "papaya",
+    "blueberry",
+    "raspberry",
+    "apricot",
+    "peach",
+    "plum",
+    "strawberry",
+    "banana",
+    "tangerine",
+    "blackberry",
+    "cranberry",
+    "kiwi",
+    "watermelon",
+    "orange",
+    "guava",
+    "date",
+    "elderberry",
+    "honeydew",
+    "fig",
+    "passionfruit",
+    "avocado",
+    "grapefruit",
+    "pear",
+    "quince",
+    "apple",
+    "coconut",
+    "pineapple",
+    "mango",
+    "nectarine",
+    "lemon",
+    "kiwifruit",
+    "papaya",
+    "cherry",
+    "blueberry",
+    "lime",
+    "pomegranate",
+    "plum",
+    "strawberry",
+    "raspberry",
+    "apricot",
+    "tangerine",
+    "blackberry",
+    "watermelon",
+    "cranberry",
+    "guava",
+    "date",
+    "elderberry",
+    "grape",
+    "fig",
+    "orange",
+    "passionfruit",
+    "peach",
+    "banana",
+    "honeydew",
+    "kiwi",
+    "grapefruit",
+    "papaya",
+    "coconut",
+    "avocado",
+    "pineapple",
+    "apple",
+    "quince",
+    "mango",
+    "nectarine",
+    "lemon",
+  ];
+  let word = props.word;
+  let Settime = props.Settime;
+  let time = props.time;
 
-  function loadWords(element) {
-    let direct = document.getElementById(`${element}`);
-    console.log(direct);
+  function increaser(value) {
+    let reducer = setInterval(() => {
+      if (value === 0) {
+        clearInterval(reducer);
+        value=15;
+        Settime(value);
+      }
+      Settime(value);
+      value--;
+    }, 1000);
+    if (value === 0) {
+      Settime(15);
+    }
+    console.log("called");
   }
 
   return (
-    <div className="main-container">
-      <div className="top">
-        <div className="type">
-          <h1>TypeCat</h1>
-          <BiSolidKeyboard className="keyboard"></BiSolidKeyboard>
+    <div className="text-box">
+      <div className="upper-text">
+        <div className="span-words">
+          {string_array.map((values, ind) =>
+            ind <= word ? <span>{values} </span> : null
+          )}
         </div>
-        <BiSolidUserCircle className="circle"></BiSolidUserCircle>
-      </div>
-      <div className="Timer">
-        <p>15</p>
-        <div className="right-timer">
-          <p>15s 30s 60s</p>
-        </div>
-      </div>
-      <div className="words">
-        <textarea id="input-text" placeholder={words.join(" ")}></textarea>
-      </div>
-      <div className="word-controls">
-        <BiReset style={{ fontSize: "25px" }}></BiReset>
-        <div className="reset">
-          <button>esc</button>
-          <p>-</p>
-          <p>reset</p>
-        </div>
-        <div className="btn-count">
-          <div className="buttons">
-            <button>10</button>
-            <button>50</button>
-            <button>80</button>
-            <button>100</button>
-          </div>
-          <p>-</p>
-          <p>No.Of.Words</p>
-        </div>
-      </div>
-      <div className="footer">
-        <div className="social">
-          <BsInstagram
-            style={{ color: "red", fontSize: "20px", cursor: "pointer" }}
-          />
-          <BsLinkedin
-            style={{ color: "blue", fontSize: "20px", cursor: "pointer" }}
-          ></BsLinkedin>
-          <AiOutlineMail
-            style={{ color: "blue", fontSize: "20px", cursor: "pointer" }}
-          ></AiOutlineMail>
-          <BsGithub
-            style={{ color: "white", fontSize: "20px", cursor: "pointer" }}
-          ></BsGithub>
-        </div>
-        <div className="theme">
-          <select className="select">
-            <option>Darken-black</option>
-            <option>Colored-Grey</option>
-            <option>Colored-Pink</option>
-            <option>Colored-Green</option>
-            <option>Colored-Blue</option>
-            <option>Lighten-White</option>
-            <option>Colored-lightPurple</option>
-          </select>
+
+        <div className="user-text">
+          <textarea
+            className="text-input"
+            onFocus={() => increaser(time)}
+          ></textarea>
         </div>
       </div>
     </div>

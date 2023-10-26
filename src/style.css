@@ -5,6 +5,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Poppins", sans-serif;
+  color: white;
 }
 #root {
   top: 0;
@@ -12,7 +13,7 @@ body {
   right: 0;
   bottom: 0;
   margin: auto;
-  height: 50vw;
+  height: 40vw;
   width: 70vw;
   position: relative;
 }
@@ -59,6 +60,7 @@ textarea {
   left: 48%;
   display: flex;
   flex-direction: column;
+  bottom: 0;
 }
 .buttons {
   display: flex;
@@ -75,7 +77,6 @@ textarea {
   margin-top: 20px;
 }
 button {
-  height: 40px;
   cursor: pointer;
 }
 .btn-count {
@@ -89,7 +90,7 @@ button {
 }
 .footer {
   position: absolute;
-  bottom: -25%;
+  bottom: -38%;
   display: flex;
   align-items: center;
 }
@@ -103,4 +104,36 @@ button {
 .theme {
   position: absolute;
   left: 40rem;
+}
+.right-timer button {
+  border: none;
+  margin-right: 2px;
+  background: black;
+  color: white;
+}
+.text-box {
+  height: 15vw;
+
+  padding: 15px;
+  position: relative;
+}
+.upper-text {
+  color: grey;
+}
+.user-text textarea {
+  background-color: transparent;
+  color: red;
+  width: 97%;
+  height: 80%;
+  resize: none;
+
+  outline: none;
+  position: absolute;
+  top: 13px;
+  left: 13px;
+  font-family: "Poppins";
+  font-size: 16px;
+}
+.user-text textarea::after {
+  border: 2px solid red;
 }
