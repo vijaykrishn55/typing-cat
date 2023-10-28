@@ -5,8 +5,8 @@ const Header = () => {
   return (
     <div className="header">
       <div className="logo">
+        TYPE CAT 
         <KeyboardAltRoundedIcon style={{ fontSize: "2rem" }} />
-        swift keys
       </div>
       <Account/>
     </div>
