@@ -2,10 +2,10 @@ const UpperMenu = ({ handleChangeMode, countDown }) => {
 
   return (
     <div className="UpperMenu">
-      <div className="counter">COUNTDOWN: {countDown}</div>
+      <div className="counter">{countDown}s</div>
       <div className="counter-modes">
         <div className="counter-mode" id={15} onClick={handleChangeMode}>
-          15S
+          15s
         </div>
         <div className="counter-mode" id={30} onClick={handleChangeMode}>
           30S
